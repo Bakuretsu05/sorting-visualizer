@@ -20,26 +20,29 @@ void draw(vector<int> arr, int c1, int c2){ // c = comparison index
     }
 }
 
+void selectionSort(vector<int> arr){
+    int temp, minNI; // min num's index
+    for(int i = 0; i < arr.size(); i++){
+        minNI = i;
+        for(int j = i + 1; j < arr.size(); j++){
+            Sleep(20);
+            draw(arr, j, minNI);
+            if(arr[j] < arr[minNI]) minNI = j;
+        }
+        temp = arr[i];
+        arr[i] = arr[minNI];
+        arr[minNI] = temp;
+        draw(arr, -1, -1);
+    }
+}
+
 int main(){
     vector<int> nums;
     for(int i = 0; i < nArr; i++){
         nums.push_back(rand() % nArr + 1);
     }
-    
-    // sorting algorithm
-    int temp, minNI; // min num's index
-    for(int i = 0; i < nums.size(); i++){
-        minNI = i;
-        for(int j = i + 1; j < nums.size(); j++){
-            Sleep(20);
-            draw(nums, j, minNI);
-            if(nums[j] < nums[minNI]) minNI = j;
-        }
-        temp = nums[i];
-        nums[i] = nums[minNI];
-        nums[minNI] = temp;
-        draw(nums, -1, -1);
-    }
+
+    selectionSort(nums);
     
     return 0;
 }
