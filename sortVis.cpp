@@ -27,7 +27,6 @@ void selectionSort(vector<int> arr){
     for(int i = 0; i < arr.size(); i++){
         min = i;
         for(int j = i + 1; j < arr.size(); j++){
-            Sleep(20);
             draw(arr, j, min, i);
             if(arr[j] < arr[min]) min = j;
         }
