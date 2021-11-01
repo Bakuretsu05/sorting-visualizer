@@ -40,8 +40,8 @@ void bubbleSort(vector<int> arr){
     while(nSorted != arr.size()){
         for(int j = 0; j < arr.size()-1; j++){
             if(arr[j] > arr[j+1]){
-                swap(arr[j], arr[j+1]);
                 draw(arr, j, j+1);
+                swap(arr[j], arr[j+1]);
             }
         }
         nSorted++;
