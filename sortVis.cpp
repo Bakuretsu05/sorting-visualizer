@@ -52,12 +52,27 @@ void bubbleSort(vector<int> arr){
 }
 
 int main(){
+    // generates {nArr} number of random array
     vector<int> nums;
     for(int i = 0; i < nArr; i++){
         nums.push_back(rand() % nArr + 1);
     }
 
-    selectionSort(nums);
+    int choice;
+    cout << "1. Selection Sort" << endl;
+    cout << "2. Bubble Sort" << endl;
+    cout << ": "; cin >> choice;
+
+    switch(choice){
+        case 1:
+            selectionSort(nums);
+            break;
+        case 2:
+            bubbleSort(nums);
+            break;
+        default:
+            cout << "Invalid input..." << endl;
+    }
     
     return 0;
 }
