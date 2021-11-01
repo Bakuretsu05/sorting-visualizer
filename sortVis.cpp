@@ -22,19 +22,33 @@ void draw(vector<int> arr, int c1, int c2, int sorted){ // c = comparison index
 }
 
 void selectionSort(vector<int> arr){
-    int temp, minNI; // min num's index
+    int temp, min; // min num's index
     for(int i = 0; i < arr.size(); i++){
-        minNI = i;
+        min = i;
         for(int j = i + 1; j < arr.size(); j++){
             Sleep(20);
-            draw(arr, j, minNI, i);
-            if(arr[j] < arr[minNI]) minNI = j;
+            draw(arr, j, min, i);
+            if(arr[j] < arr[min]) min = j;
         }
         temp = arr[i];
-        arr[i] = arr[minNI];
-        arr[minNI] = temp;
+        arr[i] = arr[min];
+        arr[min] = temp;
     }
     draw(arr, -1, -1, arr.size());
+}
+
+void bubbleSort(vector<int> arr){
+    int nSorted;
+    while(nSorted != arr.size()){
+        for(int j = 0; j < arr.size()-1; j++){
+            if(arr[j] > arr[j+1]){
+                swap(arr[j], arr[j+1]);
+                draw(arr, j, j+1, -1);
+            }
+        }
+        nSorted++;
+    }
+    draw(arr, -1, -1, -1);
 }
 
 int main(){
