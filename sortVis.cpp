@@ -46,15 +46,17 @@ void selectionSort(vector<int> arr){
             if(arr[j] < arr[min]) min = j;
             comparisons++;
         }
+        draw(arr, min, i);
         swap(arr[i], arr[min]);
         swaps++;
     }
-    draw(arr, -1, -1);
+    draw(arr); // final draw
 }
 
 void bubbleSort(vector<int> arr){
     for(int i = arr.size(); i > 0; i--){
-        for(int j = 0; j < i; j++){
+        for(int j = 0; j < i-1; j++){
+            draw(arr, j, j+1);
             if(arr[j] > arr[j+1]){
                 draw(arr, j, j+1);
                 swap(arr[j], arr[j+1]);
@@ -63,7 +65,7 @@ void bubbleSort(vector<int> arr){
             comparisons++;
         }
     }
-    draw(arr);
+    draw(arr); // final draw
 }
 
 int main(){
