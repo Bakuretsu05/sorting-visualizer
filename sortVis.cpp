@@ -7,12 +7,11 @@ using namespace std;
 
 const int nArr = 50;
 
-void draw(vector<int> arr, int c1 = -1, int c2 = -1, int sorted = -1){ // c = comparison index
+void draw(vector<int> arr, int c1 = -1, int c2 = -1){ // c = comparison index
     system("cls");
     for(int i = 0; i < arr.size(); i++){
-        string oChar = " O ";
-        if(i == c1 || i == c2)  oChar = " X ";
-        if(i < sorted) oChar = " # ";
+        string oChar = "___";
+        if(i == c1 || i == c2)  oChar = "XXX";
 
         for(int j = 0; j < arr[i]; j++){
             cout << oChar;
@@ -27,12 +26,12 @@ void selectionSort(vector<int> arr){
     for(int i = 0; i < arr.size(); i++){
         min = i;
         for(int j = i + 1; j < arr.size(); j++){
-            draw(arr, j, min, i);
+            draw(arr, j, min);
             if(arr[j] < arr[min]) min = j;
         }
         swap(arr[i], arr[min]);
     }
-    draw(arr, -1, -1, arr.size());
+    draw(arr, -1, -1);
 }
 
 void bubbleSort(vector<int> arr){
