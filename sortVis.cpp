@@ -7,7 +7,19 @@
 using namespace std;
 
 const int nArr = 50;
+vector<int> nums;
 int comparisons, swaps;
+
+void setup(){
+    // generates {nArr} number of random array
+    srand(time(NULL)); // seed the time
+    for(int i = 0; i < nArr; i++){
+        nums.push_back(rand() % nArr + 1);
+    }
+
+    comparisons = 0;
+    swaps = 0;
+}
 
 void draw(vector<int> arr, int c1 = -1, int c2 = -1){ // c = comparison index
     system("cls");
@@ -55,12 +67,7 @@ void bubbleSort(vector<int> arr){
 }
 
 int main(){
-    // generates {nArr} number of random array
-    vector<int> nums;
-    srand(time(NULL)); //seed the time
-    for(int i = 0; i < nArr; i++){
-        nums.push_back(rand() % nArr + 1);
-    }
+    setup();
 
     int choice;
     cout << "1. Selection Sort" << endl;
