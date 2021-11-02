@@ -3,12 +3,16 @@
 #include <vector>
 #include <windows.h>
 #include <cstdlib>
+#include <time.h>
 using namespace std;
 
 const int nArr = 50;
+int comparisons, swaps;
 
 void draw(vector<int> arr, int c1 = -1, int c2 = -1){ // c = comparison index
     system("cls");
+    cout << "Comparisons: " << comparisons << "  /   swaps: " << swaps << endl;
+    cout << endl;
     for(int i = 0; i < arr.size(); i++){
         string oChar = "___";
         if(i == c1 || i == c2)  oChar = "XXX";
@@ -28,8 +32,10 @@ void selectionSort(vector<int> arr){
         for(int j = i + 1; j < arr.size(); j++){
             draw(arr, j, min);
             if(arr[j] < arr[min]) min = j;
+            comparisons++;
         }
         swap(arr[i], arr[min]);
+        swaps++;
     }
     draw(arr, -1, -1);
 }
@@ -40,7 +46,9 @@ void bubbleSort(vector<int> arr){
             if(arr[j] > arr[j+1]){
                 draw(arr, j, j+1);
                 swap(arr[j], arr[j+1]);
+                swaps++;
             }
+            comparisons++;
         }
     }
     draw(arr);
@@ -49,6 +57,7 @@ void bubbleSort(vector<int> arr){
 int main(){
     // generates {nArr} number of random array
     vector<int> nums;
+    srand(time(NULL)); //seed the time
     for(int i = 0; i < nArr; i++){
         nums.push_back(rand() % nArr + 1);
     }
