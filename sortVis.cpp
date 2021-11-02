@@ -36,15 +36,13 @@ void selectionSort(vector<int> arr){
 }
 
 void bubbleSort(vector<int> arr){
-    int nSorted;
-    while(nSorted != arr.size()){
-        for(int j = 0; j < arr.size()-1; j++){
+    for(int i = arr.size(); i > 0; i--){
+        for(int j = 0; j < i; j++){
             if(arr[j] > arr[j+1]){
                 draw(arr, j, j+1);
                 swap(arr[j], arr[j+1]);
             }
         }
-        nSorted++;
     }
     draw(arr);
 }
