@@ -68,12 +68,53 @@ void bubbleSort(vector<int> arr){
     draw(arr); // final draw
 }
 
+void cocktailSort(vector<int> arr){
+    bool swapped = true;
+    int nSorted = 1;
+
+    while(swapped){
+        // ascend
+        swapped = false;
+        for(int i = nSorted-1; i < arr.size() - nSorted; i++){
+            draw(arr, i, i+1);
+            if(arr[i] > arr[i+1]){
+                swap(arr[i], arr[i+1]);
+                swapped = true;
+
+                draw(arr, i, i+1);
+                swaps++;
+            }
+            comparisons++;
+        }
+        if(!swapped) break;
+
+        // descend
+        swapped = false;
+        for(int i = arr.size()-nSorted; i >= nSorted; i--){
+            draw(arr, i, i-1);
+            if(arr[i] < arr[i-1]){
+                swap(arr[i], arr[i-1]);
+                swapped = true;
+
+                draw(arr, i, i+1);
+                swaps++;
+            }
+            comparisons++;
+        }
+        if(!swapped) break;
+
+        nSorted++;
+    }
+    draw(arr); // final draw
+}
+
 int main(){
     setup();
 
     int choice;
     cout << "1. Selection Sort" << endl;
     cout << "2. Bubble Sort" << endl;
+    cout << "3. Cocktail Sort" << endl;
     cout << ": "; cin >> choice;
 
     switch(choice){
@@ -82,6 +123,9 @@ int main(){
             break;
         case 2:
             bubbleSort(nums);
+            break;
+        case 3:
+            cocktailSort(nums);
             break;
         default:
             cout << "Invalid input..." << endl;
