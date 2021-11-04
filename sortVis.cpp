@@ -42,13 +42,13 @@ void selectionSort(vector<int> &arr){
     for(int i = 0; i < arr.size(); i++){
         min = i;
         for(int j = i + 1; j < arr.size(); j++){
-            draw(arr, j, min);
             if(arr[j] < arr[min]) min = j;
             comparisons++;
+            draw(arr, j, min);
         }
-        draw(arr, min, i);
         swap(arr[i], arr[min]);
         swaps++;
+        draw(arr, min, i);
     }
     draw(arr); // final draw
 }
@@ -58,9 +58,9 @@ void bubbleSort(vector<int> &arr){
         for(int j = 0; j < i-1; j++){
             draw(arr, j, j+1);
             if(arr[j] > arr[j+1]){
-                draw(arr, j, j+1);
                 swap(arr[j], arr[j+1]);
                 swaps++;
+                draw(arr, j, j+1);
             }
             comparisons++;
         }
