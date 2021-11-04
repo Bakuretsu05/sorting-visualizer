@@ -21,7 +21,7 @@ void setup(){
     swaps = 0;
 }
 
-void draw(vector<int> arr, int c1 = -1, int c2 = -1){ // c = comparison index
+void draw(const vector<int> &arr, int c1 = -1, int c2 = -1){ // c = comparison index
     system("cls");
     cout << "Comparisons: " << comparisons << "  /   swaps: " << swaps << endl;
     cout << endl;
@@ -37,7 +37,7 @@ void draw(vector<int> arr, int c1 = -1, int c2 = -1){ // c = comparison index
     Sleep(10);
 }
 
-void selectionSort(vector<int> arr){
+void selectionSort(vector<int> &arr){
     int temp, min; // min num's index
     for(int i = 0; i < arr.size(); i++){
         min = i;
@@ -53,7 +53,7 @@ void selectionSort(vector<int> arr){
     draw(arr); // final draw
 }
 
-void bubbleSort(vector<int> arr){
+void bubbleSort(vector<int> &arr){
     for(int i = arr.size(); i > 0; i--){
         for(int j = 0; j < i-1; j++){
             draw(arr, j, j+1);
@@ -68,7 +68,7 @@ void bubbleSort(vector<int> arr){
     draw(arr); // final draw
 }
 
-void cocktailSort(vector<int> arr){
+void cocktailSort(vector<int> &arr){
     bool swapped = true;
     int nSorted = 1;
 
